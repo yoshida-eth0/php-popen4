@@ -12,4 +12,4 @@ $status = POpen4::popen4("/bin/bash", function($pid, $stdin, $stdout, $stderr) {
 	echo "stderr : ".trim(fread($stderr, 1024))."\n";
 });
 
-echo "status : ".trim(print_r($status, true))."\n";
+echo "exitstatus : ".$status."\n";

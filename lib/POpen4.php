@@ -34,6 +34,11 @@ class POpen4
 		return $st["pid"];
 	}
 
+	public function exitstatus()
+	{
+		return $this->_exitstatus;
+	}
+
 	public function stdin()
 	{
 		return $this->_pipes[0];
@@ -72,9 +77,9 @@ class POpen4
 		}
 		if (is_resource($this->_process)) {
 			$this->status();
-			proc_close($this->_process);
+			$this->_exitstatus = proc_close($this->_process);
 		}
-		return $this->status();
+		return $this->exitstatus();
 	}
 
 	public function nice($increment)
