@@ -12,7 +12,7 @@ $err = fread($p->stderr(), 1024);
 
 $p->close();
 
-echo "pid        : ".$pid."\n";
+echo "pid        : ".$p->pid()."\n";
 echo "stdout     : ".trim($out)."\n";
 echo "stderr     : ".trim($err)."\n";
 echo "status     : ".trim(print_r($p->status(), true))."\n";
