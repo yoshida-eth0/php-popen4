@@ -60,7 +60,7 @@ class POpen4
 	{
 		if (is_resource($this->_process)) {
 			$this->_status = proc_get_status($this->_process);
-			if (is_null($this->_exitstatus)) {
+			if (0<=$this->_status['exitcode']) {
 				$this->_exitstatus = $this->_status['exitcode'];
 			}
 		}
