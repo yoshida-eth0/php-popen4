@@ -28,17 +28,6 @@ class POpen4
 
 	// getter
 
-	public function pid()
-	{
-		$st = $this->status();
-		return $st["pid"];
-	}
-
-	public function exitstatus()
-	{
-		return $this->_exitstatus;
-	}
-
 	public function stdin()
 	{
 		return $this->_pipes[0];
@@ -54,8 +43,6 @@ class POpen4
 		return $this->_pipes[2];
 	}
 
-	// instance methost
-
 	public function status()
 	{
 		if (is_resource($this->_process)) {
@@ -66,6 +53,20 @@ class POpen4
 		}
 		return $this->_status;
 	}
+
+	public function pid()
+	{
+		$st = $this->status();
+		return $st["pid"];
+	}
+
+	public function exitstatus()
+	{
+		$this->status();
+		return $this->_exitstatus;
+	}
+
+	// instance methost
 
 	public function close()
 	{
